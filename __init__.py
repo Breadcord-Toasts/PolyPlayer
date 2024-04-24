@@ -94,10 +94,9 @@ class PolyPlayer(breadcord.module.ModuleCog):
                 del self.players[guild_id]
                 continue
 
+            video_info = player.queue.pop(0)
             if player.loop:
-                video_info = player.queue[0]
-            else:
-                video_info = player.queue.pop(0)
+                player.queue.append(video_info)
             player.now_playing = video_info
 
             player.connection.play(discord.PCMVolumeTransformer(discord.FFmpegPCMAudio(
