@@ -1,0 +1,11 @@
+# If you want to use a specific Invidious instance (e.g. one that is geographically closer) you can specify it here.
+# If left empty an appropriate host will be picked automatically.
+invidious_host_url = ""
+
+[spotify]
+# Used to obtain an api key
+# https://developer.spotify.com/documentation/web-api/tutorials/getting-started#create-an-app
+client_id = ""
+# Used to obtain an api key
+# https://developer.spotify.com/documentation/web-api/tutorials/getting-started#create-an-app
+client_secret = ""

@@ -1,0 +1,9 @@
+manifest_version = 1
+
+[module]
+name = "PolyPlayer"
+id = "polyplayer"
+version = "0.0.1"
+license = "GNU GPLv3"
+authors = ["Fripe"]
+requirements = ["PyNaCl"]
