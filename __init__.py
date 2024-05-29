@@ -262,7 +262,7 @@ class PolyPlayer(breadcord.module.ModuleCog):
 class Invidious(AIOLoadable):
     def __init__(self, *, host_url: str | None = None) -> None:
         self.host_url: str | None = host_url.rstrip("/") if host_url else None
-        self.logger = getLogger("poy_player.Invidious")
+        self.logger = getLogger("poly_player.Invidious")
         self.session: aiohttp.ClientSession = aiohttp.ClientSession()
 
     async def load(self) -> None:
