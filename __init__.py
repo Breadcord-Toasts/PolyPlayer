@@ -414,5 +414,5 @@ class Translator(AIOLoadable):
             self._spotify_token_expires_at = datetime.datetime.now() + datetime.timedelta(seconds=data["expires_in"])
 
 
-async def setup(bot: breadcord.Bot):
-    await bot.add_cog(PolyPlayer("polyplayer"))
+async def setup(bot: breadcord.Bot, module: breadcord.module.Module) -> None:
+    await bot.add_cog(PolyPlayer(module.id))
