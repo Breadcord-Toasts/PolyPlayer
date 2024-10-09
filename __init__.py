@@ -341,7 +341,7 @@ class Translator(AIOLoadable):
         self.session: aiohttp.ClientSession = aiohttp.ClientSession()
 
         self._spotify_token: str | None = None
-        self._spotify_token_expires_at: datetime.datetime | None = None
+        self._spotify_token_expires_at: datetime.datetime = datetime.datetime.min
 
     async def load(self) -> None:
         pass
@@ -394,10 +394,8 @@ class Translator(AIOLoadable):
         return search[0]["videoId"]
 
     async def update_spotify_token(self) -> None:
-        if (
-            self._spotify_token_expires_at is not None
-            and self._spotify_token_expires_at < datetime.datetime.now() + datetime.timedelta(minutes=15)
-        ):
+        # We add a minute so that we have a bit more breathing room
+        if self._spotify_token_expires_at > datetime.datetime.now() + datetime.timedelta(minutes=1):
             return
         async with self.session.post(
             "https://accounts.spotify.com/api/token",
